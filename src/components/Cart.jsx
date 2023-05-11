@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+//Calculate and display the total price of all items and show the info while adding them to the cart, provides a button for checkout and emptycart
+
 export default function Cart({ products, amount, checkOut, setLoadingFinished, updateStock, removeStock }) {
 
 
-    const productsAddedTextEl = [];
+    const productsInCart = [];
     let totalPrice = 0;
 
     for (let i = 0; i < products.length; i++) {
         if (amount[i] != 0) {
-            productsAddedTextEl.push(<div key={i}><h2 key={i}> <img className="smaller" src={products[i].img} /> {products[i].name} - {products[i].price} kr - Qty: {amount[i]} </h2>
+            productsInCart.push(<div key={i}><h2 key={i}> <img className="smaller" src={products[i].img} /> {products[i].name} - {products[i].price} kr - Qty: {amount[i]} </h2>
 
                 <button className='add' onClick={() => updateStock(products[i], i)}>+</button>
 
@@ -25,7 +28,7 @@ export default function Cart({ products, amount, checkOut, setLoadingFinished, u
 
             <div className='col-2'>
                 <h2>Cart Items</h2>
-                {productsAddedTextEl}
+                {productsInCart}
             </div>
 
             <p>Total Price: {totalPrice} kr</p>

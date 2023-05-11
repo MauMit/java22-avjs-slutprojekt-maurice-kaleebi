@@ -6,6 +6,7 @@ import Header from './Header';
 import { useEffect, useState } from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
+// Call on firebase to get my products and create functions to remove and updatestock. Using router to go from homepage to Cart 
 
 const url = 'https://slutproject-produkt-advjs-default-rtdb.europe-west1.firebasedatabase.app/products.json';
 
@@ -26,7 +27,7 @@ export default function App() {
             setProducts(data);
             setLoadingFinished(true);
             setCartItemsCount(0);
-            console.log(data);
+
         }
         getFireBase();
     }, [loadingFinished]);
