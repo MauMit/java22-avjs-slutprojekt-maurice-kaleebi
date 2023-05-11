@@ -8,6 +8,7 @@ export default function Cart({ products, amount, checkOut, setLoadingFinished, u
 
     const productsInCart = [];
     let totalPrice = 0;
+    //Shows the amount of products that has been added and shows total price. Uses buttons to remove and add products in the cart
 
     for (let i = 0; i < products.length; i++) {
         if (amount[i] != 0) {

@@ -6,7 +6,7 @@ import Header from './Header';
 import { useEffect, useState } from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
-// Call on firebase to get my products and create functions to remove and updatestock. Using router to go from homepage to Cart 
+// Call on firebase to get my products and create functions to removeStock, updatestock a checkOut function that shows the user a messege Using router to go from homepage to Cart 
 
 const url = 'https://slutproject-produkt-advjs-default-rtdb.europe-west1.firebasedatabase.app/products.json';
 
@@ -33,7 +33,7 @@ export default function App() {
     }, [loadingFinished]);
 
 
-
+    //function for decreasing the stock if it is higher than zero and counting the items in the cart
     function updateStock(product, index) {
         if (product.stock > 0) {
             product.stock -= 1;
@@ -49,7 +49,7 @@ export default function App() {
         }
 
     }
-
+    // function for decreasing the stock by 1 when its in the cart
     function removeStock(product, index) {
         product.stock += 1;
         amount[index] -= 1;
@@ -57,7 +57,7 @@ export default function App() {
         setCartItemsCount(cartItemsCount - 1)
     }
 
-
+    // function using the put method to change the stock when the user completes the purchase
     async function checkOut() {
 
         alert("Thank you for your purchase")

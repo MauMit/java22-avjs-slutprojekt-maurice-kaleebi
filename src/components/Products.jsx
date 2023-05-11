@@ -8,7 +8,7 @@ export default function Products({ products, updateStock, amount, removeStock })
 
     const productsInCart = [];
     let totalPrice = 0;
-
+//Shows the amount of products that has been added and shows total price. Uses buttons to remove and add products in the cart
     for (let i = 0; i < products.length; i++) {
         if (amount[i] != 0) {
             productsInCart.push(<div key={i}><h2 key={i}> <img className="smaller" src={products[i].img} /> {products[i].name} - {products[i].price} kr - Qty: {amount[i]} </h2>
